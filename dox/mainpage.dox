@@ -1,0 +1,89 @@
+/////////////////////////
+// MAINPAGE            //
+/////////////////////////
+/*! \mainpage
+
+\section intro_sec Introduction & Rationale
+
+ThrowStream is a convenient way to throw descriptive exceptions, particularly if
+the program want to report the values of variables
+
+Note that some may object to exceptions such as these, as
+translation may be difficult and it would be very hard for
+a program to decide what to do after such an exception (as opposed
+to, say, status or error flags). However, I have found it useful
+in many small, personal programs.
+
+
+\section require_sec Requirements
+Nothing other than a C++ compiler
+
+
+\section building_sec Building
+
+There is no compilation necessary. To use the class, just include the header file ThrowStream.h
+To build the example:
+
+An example can be built. To do so:
+
+\code
+mkdir build; cd build;
+cmake ../
+make
+\endcode
+
+<b>Hint for the example:</b> Try putting in bad input, such as zero or letters.
+
+\section using_sec Using
+
+The class is mainly used through a few macros. First, somewhere in the code,
+the exception can be thrown:
+
+\code{.cpp}
+THROWSTREAM << "I don't like these variables: " << var1 << " and " << var2;
+\endcode
+
+Later, further up the stack, information can be appended
+
+\code{.cpp}
+catch(const std::exception & ex)
+THROWSTREAMAPPEND(ex) << "Called using: " << varA << " and " << varB;
+\endcode
+
+Such macros will automatically append the file, line, and function information.
+This information can be printed if compiled with -DTHROWSTREAM_EXCEPTIONSOURCE
+option.
+
+In general, any ThrowStream object can have information appended to it with
+the stream operator. This allows for creating an object ahead of time. For example,
+this allows for a complete parsing of a user input and a recording of all the
+errors, rather than stopping at the first one. See the example for details.
+
+
+
+
+
+\section license_sec License
+The MIT License (MIT)
+
+Copyright (c) 2013 Benjamin Pritchard
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+ */
