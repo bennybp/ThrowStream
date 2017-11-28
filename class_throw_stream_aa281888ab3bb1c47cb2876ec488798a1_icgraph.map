@@ -1,0 +1,4 @@
+<map id="ThrowStream::Append" name="ThrowStream::Append">
+<area shape="rect" id="node2" href="$class_throw_stream.html#a3e8de3384dc1cbaeb14b071ebe770852" title="Construct using the line, file, and function. " alt="" coords="205,5,392,32"/>
+<area shape="rect" id="node3" href="$class_throw_stream.html#a361d743843274d6d89ec213cbb818077" title="Add a new line to the backtrace, copying an existing exception. " alt="" coords="223,56,375,83"/>
+</map>
